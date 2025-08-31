@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+
+body{
+font-family: "Libertinus Serif Display", system-ui;
+}
+
+
+@theme {
+  --color-primary: #282657;
+    --color-primary-hover:#0F0E47;
+
+  --color-secondary-hover:#525081;
+  --color-secondary:#8685AD;
+  
+}
+

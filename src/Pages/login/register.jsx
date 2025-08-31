@@ -29,6 +29,9 @@ const RegisterPage = () => {
             placeholder='Enter your first name'
             {...register("firstname")} 
           />
+
+         <p className="text-sm text-red-400">{errors.firstname?.message}</p>
+
           
         </div>
 
