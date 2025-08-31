@@ -32,7 +32,7 @@ const LoginPage = () => {
 
         {/* login form part */}
 
-        <div className=" flex flex-col items-center justify-center bg-gradient-to-br from-blue-100 to-blue-300 text-blue-900 font-medium w-[50%] p-8">
+        <div className=" flex flex-col items-center justify-center bg-secondary font-medium w-[50%] p-8">
           <div className="">
             <img src={Logo} alt="Logo" className="h-16 rounded-xl" />
           </div>
@@ -63,7 +63,7 @@ const LoginPage = () => {
 
               <button
                 type="submit"
-                className="bg-black text-white p-1.5 px-2.5 rounded-2xl flex justify-self-center mt-8 hover:bg-blue-800"
+                className="bg-primary text-white p-1.5 px-2.5 rounded-2xl flex justify-self-center mt-8 hover:bg-primary-hover"
               >
                 Login
               </button>
@@ -71,9 +71,9 @@ const LoginPage = () => {
           </div>
 
           <div className="flex items-center">
-            <p className="text-xs text-black">Don't have an account?</p>
+            <p className="text-xs pr-1 text-black">Don't have an account?</p>
             <Link
-              className="font-semibold  cursor-pointer rounded-xl text-green-600 "
+              className="font-semibold  cursor-pointer rounded-xl text-primary "
               to="/register"
             >
               Register
