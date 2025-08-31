@@ -32,7 +32,7 @@ const LoginPage = () => {
 
         {/* login form part */}
 
-        <div className=" flex flex-col items-center justify-center bg-blue-200 text-blue-800 font-semibold w-[50%]">
+        <div className=" flex flex-col items-center justify-center bg-blue-200 text-blue-800 font-semibold w-[50%] ">
           <div className="">
             <img src={Logo} alt="Logo" className="h-16 rounded-xl" />
           </div>
