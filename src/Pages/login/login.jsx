@@ -18,7 +18,7 @@ const LoginPage = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-blue-100">
-      <div className="flex shadow-2xl bg-white rounded-2xl ">
+      <div className="flex shadow-2xl bg-white rounded-2xl h-[450px]">
         {/* images part */}
 
         <div className="w-[50%]">
@@ -26,7 +26,7 @@ const LoginPage = () => {
             src={LoginImage}
             alt="Login Image"
             width={500}
-            className="h-[420px]"
+            className="h-[450px]"
           />
         </div>
 
@@ -38,27 +38,37 @@ const LoginPage = () => {
           </div>
 
           <div className="my-12 ">
-            <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-              <div className="space-x-3 -2.5">
-                <label>Username</label>
-                <input
-                  placeholder="Username"
-                  className="p-1 rounded-md border"
-                  type="text"
-                  {...register("username")}
-                />
-                <p className="text-sm text-red-400">{errors.username?.message}</p>
+            <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
+
+              {/* username part */}
+              <div className="flex items-center space-x-3">
+                <label className="w-16">Username</label>
+                <div className="flex flex-col flex-1">
+                  <input
+                    placeholder="Username"
+                    className="p-1 rounded-md border"
+                    type="text"
+                    {...register("username")}
+                  />
+                  <p className="min-h-3 text-xs text-red-500">{errors.username?.message}</p>
+                </div>
               </div>
 
-              <div className="space-x-3 ">
-                <label>Password</label>
-                <input
-                  placeholder="Password"
-                  className="p-1 rounded-md border ml-1.5"
-                  type="password"
-                  {...register("password")}
-                />
-                <p className="text-sm text-red-400">{errors.password?.message}</p>
+
+              {/* password part */}
+              <div>
+                <div className="flex items-center space-x-3">
+                  <label className="w-16">Password</label>
+                  <div className="flex flex-col flex-1">
+                    <input
+                      placeholder="Password"
+                      className="p-1 rounded-md border"
+                      type="password"
+                      {...register("password")}
+                    />
+                    <p className="text-xs text-red-500">{errors.password?.message}</p>
+                  </div>
+                </div>
               </div>
 
               <button
