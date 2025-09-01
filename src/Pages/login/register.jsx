@@ -43,7 +43,7 @@ const RegisterPage = () => {
             placeholder='Enter your last name'
             {...register("lastname")} 
           />
-         
+         <p className="text-sm text-red-400">{errors.lastname?.message}</p>
         </div>
 
         <div className='mb-4'>
@@ -54,7 +54,7 @@ const RegisterPage = () => {
             placeholder='Enter your email'
             {...register("email")}
           />
-          
+          <p className="text-sm text-red-400">{errors.email?.message}</p>
         </div>
 
         <div className='mb-4'>
@@ -65,7 +65,7 @@ const RegisterPage = () => {
             placeholder='Enter your password'
             {...register("password")}
           />
-          
+          <p className="text-sm text-red-400">{errors.password?.message}</p>
         </div>
 
         <div className='mb-6'>
@@ -76,7 +76,7 @@ const RegisterPage = () => {
             placeholder='Confirm your password'
             {...register("confirmPassword")}
           />
-          
+          <p className="text-sm text-red-400">{errors.confirmPassword?.message}</p>
         </div>
 
         <button
