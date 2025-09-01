@@ -4,15 +4,15 @@ export const RegisterSchema = yup.object
     ({
         firstname: yup
             .string()
-            .required("Username is required")
-            .min(3, "Username must be at least 3 characters")
-            .max(20, "Username must not exceed 20 characters"),
+            .required("Firstname is required")
+            .min(3, "Firstname must be at least 3 characters")
+            .max(20, "Firstname must not exceed 20 characters"),
 
         lastname: yup
             .string()
-            .required("Username is required")
-            .min(3, "Username must be at least 3 characters")
-            .max(20, "Username must not exceed 20 characters"),
+            .required("Lastname is required")
+            .min(3, "Lastname must be at least 3 characters")
+            .max(20, "Lastname must not exceed 20 characters"),
 
         email: yup
             .string().email('The email is invalid').required('This field is compulsory'),
