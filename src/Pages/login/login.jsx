@@ -1,11 +1,16 @@
 import React from "react";
 import { LoginImage, Logo } from "../../script/Images";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from "../../schema/loginschema";
+import supabase from "../../../supaBaseClient";
+
+
 
 const LoginPage = () => {
+const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
@@ -14,7 +19,22 @@ const LoginPage = () => {
     resolver: yupResolver(LoginSchema),
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (loginData) => {
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword(loginData);
+
+      if(error){
+        console.log(error,"err")
+      }else{
+      console.log(data,"err")
+        navigate("/dashboard")
+      }
+
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="flex items-center justify-center h-screen bg-blue-100">
@@ -39,21 +59,21 @@ const LoginPage = () => {
 
           <div className="my-12 ">
             <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
-
               {/* username part */}
               <div className="flex items-center space-x-3">
-                <label className="w-16">Username</label>
+                <label className="w-16">Email</label>
                 <div className="flex flex-col flex-1">
                   <input
                     placeholder="Username"
                     className="p-1 rounded-md border"
                     type="text"
-                    {...register("username")}
+                    {...register("email")}
                   />
-                  <p className="min-h-3 text-xs text-red-500">{errors.username?.message}</p>
+                  <p className="min-h-3 text-xs text-red-500">
+                    {errors.email?.message}
+                  </p>
                 </div>
               </div>
-
 
               {/* password part */}
               <div>
@@ -66,7 +86,9 @@ const LoginPage = () => {
                       type="password"
                       {...register("password")}
                     />
-                    <p className="text-xs text-red-500">{errors.password?.message}</p>
+                    <p className="text-xs text-red-500">
+                      {errors.password?.message}
+                    </p>
                   </div>
                 </div>
               </div>
