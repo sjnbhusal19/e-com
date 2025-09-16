@@ -31,5 +31,7 @@ export const RegisterSchema = yup.object
             .string().oneOf([yup.ref("password"), null], "Passwords muct match")
             .required("Confirm password is required!"),
 
+        role:yup.string().required("One of the role must be select")
+
 
     }).required();

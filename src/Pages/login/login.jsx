@@ -5,11 +5,15 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from "../../schema/loginschema";
 import supabase from "../../../supaBaseClient";
+import { useDispatch } from "react-redux";
+import { authInformation } from "../../redux/userSlice";
+
 
 
 
 const LoginPage = () => {
 const navigate = useNavigate()
+const dispatch=useDispatch()
 
   const {
     register,
@@ -27,6 +31,10 @@ const navigate = useNavigate()
         console.log(error,"err")
       }else{
       console.log(data,"err")
+
+      dispatch(authInformation(data.user.user_metadata))
+
+
         navigate("/dashboard")
       }
 

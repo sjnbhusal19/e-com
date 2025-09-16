@@ -25,7 +25,7 @@ const RegisterPage = () => {
     setErrorMessage(null)
 
     try {
-      const { email, firstname, lastname, password } = userData;
+      const { email, firstname, lastname, password,role } = userData;
 
       const payload = {
         email,
@@ -34,6 +34,7 @@ const RegisterPage = () => {
           data: {
             first_name: firstname,
             last_name: lastname,
+            role:role
           },
         },
       };
@@ -121,6 +122,23 @@ const RegisterPage = () => {
             {errors.confirmPassword?.message}
           </p>
         </div>
+
+
+                <div className="mb-4">
+          <label className="block text-gray-700 mb-1">Role:</label>
+          <select
+            className={`border rounded w-full py-2 px-3 `}
+            {...register("role")}
+          >
+              <option value="" >Select Role</option>
+                            <option value="member" >Member</option>
+              <option value="manager" >Manager</option>
+
+
+            </select>
+          <p className="text-sm text-red-400">{errors.role?.message}</p>
+        </div>
+
 
         <p className="text-sm text-red-500">{errorMessage}</p>
 
